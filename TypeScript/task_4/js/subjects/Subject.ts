@@ -1,12 +1,14 @@
+/// <reference path="./Teacher.ts" />
+
 namespace Subjects {
     export class Subject {
-        teacher: Teacher;
+        protected teacher: Subjects.Teacher;
 
-        constructor(teacher: Teacher) {
+        constructor(teacher: Subjects.Teacher) {
             this.teacher = teacher;
         }
 
-        setTeacher(teacher: Teacher): void {
+        setTeacher(teacher: Subjects.Teacher): void {
             this.teacher = teacher;
         }
     }
