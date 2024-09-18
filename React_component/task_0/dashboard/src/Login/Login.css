@@ -1,8 +1,4 @@
 .App-body {
-    flex: 1;
-    padding-left: 60px;
+    font-size: 1rem;
+    padding: 50px;
   }
-  .App-body p, .App-footer p {
-    font-size: 32px;
-  }
-  

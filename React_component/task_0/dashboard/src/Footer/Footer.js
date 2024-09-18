@@ -1,11 +1,14 @@
-import { getFooterCopy, getFullYear } from "../utils/utils";
+import React from 'react';
+import { getFullYear, getFooterCopy } from '../utils/utils';
 import './Footer.css';
 
-export default function Footer() {
+
+const Footer = () => {
   return (
-    <div className="App-footer" data-testid="App-footer">
-      <p>Copyright {getFullYear()} - holberton School</p>
-      <p>{getFooterCopy(false)}</p>
-    </div>
-  );
+    <div className="App-footer">
+    <p>Copyright {getFullYear()} - {getFooterCopy()}</p>
+  </div>
+  )
 }
+
+export default Footer;

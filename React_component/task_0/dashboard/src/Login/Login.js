@@ -1,21 +1,22 @@
-import React from "react";
-import './Login.css'
+import React from 'react'
+import './Login.css';
 
-export default function Login() {
+const Login = () => {
   return (
-    <div className="App-body" data-testid="App-body">
-      <p>Login to access the full dashboard</p>
-      <form action="">
-        <label htmlFor="email">
-          email:
-          <input type="email" data-testid="email" id="email" />
-        </label>
-        <label htmlFor="password">
-          password:
-          <input type="password" data-testid="password" id="password" />
-        </label>
-        <button>ok</button>
-      </form>
+    <div className="App-body"> 
+         <p>Login to access the full dashboard</p>
+         <label htmlFor="email">Email:</label>
+         <input type="text" id="email" name="email"></input>
+         <label htmlFor="password">Password:</label>
+         <input type="password" id="password" name="password"></input>
+         <button style={{
+               background: "transparent",
+               borderRadius: '5px',
+               margin: "0 0 0 10px",
+               border: "1px solid gray"
+         }}>OK</button>
     </div>
-  );
+  )
 }
+
+export default Login

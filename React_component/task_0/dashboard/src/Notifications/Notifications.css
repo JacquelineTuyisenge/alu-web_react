@@ -1,12 +1,23 @@
 .Notifications {
-  border: 2px solid pink;
-  padding: 20px;
+    border: 1px dashed #c1384c ;
+    padding: 10px;
+    width: 400px;
 }
 
-ul li {
-  color: blue;
+
+.Notifications [data-notification-type="default"] {
+    color: blue;
 }
 
-li[data-priority="urgent"] {
-  color: red;
+.Notifications [data-notification-type="urgent"] {
+    color: red;
+}
+.placing{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    
+}
+.menuItem{
+    text-align: end;
 }
