@@ -1,20 +1,21 @@
-const utils = require('./utils');
+// In strict assertion mode, non - strict methods behave like their corresponding strict methods.For example, assert.deepEqual() will behave like assert.deepStrictEqual().
+import { strict as assert } from 'assert';
+import { getFullYear, getFooterCopy, getLatestNotification } from './utils';
 
-test('return current year', () => {
-    const currentYear = new Date().getFullYear();
-    expect(utils.getFullYear()).toBe(currentYear);
-});
+describe('Test Utils', () => {
 
-test('return footer with isIndex=true', () => {
-    const isIndex = true;
-    expect(utils.getFooterCopy(isIndex)).toBe("Holberton School");
-});
+    it('Tests that getFullYear is current', () => {
+        assert.equal(getFullYear(), new Date().getFullYear());
+    });
+    it('Validates the result of getFooterCopy with true', () => {
+        assert.equal(getFooterCopy(true), 'Holberton School.');
+    });
+    it('Validates the result of getFooterCopy with false', () => {
+        assert.equal(getFooterCopy(false), 'Holberton School main dashboard');
+    });
 
-test('return footer with isIndex=false', () => {
-    const isIndex = false;
-    expect(utils.getFooterCopy(isIndex)).toBe("Holberton School main dashboard");
-});
-
-test('return correct latest notification', () => {
-    expect(utils.getLatestNotification()).toBe("<strong>Urgent requirement</strong> - complete by EOD");
+    it('checks return of getLatestNotification', () => {
+        // use JSON.stringify because
+        assert.equal(JSON.stringify(getLatestNotification()), JSON.stringify({ __html: '<strong>Urgent requirement</strong> - complete by EOD' }));
+    });
 });

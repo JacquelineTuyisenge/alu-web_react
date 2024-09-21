@@ -1,23 +1,20 @@
-import React from "react";
-import Login from "./Login";
-import { shallow } from "enzyme";
-
+import React from 'react';
+import { shallow } from 'enzyme';
+import Login from './Login';
 
 describe('<Login />', () => {
-    it('Login renders without crashing', () => {
+    it('renders an <Login /> component checking for App-Login', () => {
         const wrapper = shallow(<Login />);
-        expect(wrapper).toBeDefined();
+        expect(wrapper.find('div.App-body')).toHaveLength(1);
     });
 
-    it('Login renders 2 label tags', () => {
+    it('renders an <Login /> component checking for input', () => {
         const wrapper = shallow(<Login />);
-        const element = wrapper.find('label');
-        expect(element).toHaveLength(2)
+        expect(wrapper.find('div.App-body input')).toHaveLength(2);
     });
 
-    it('Login renders 2 input tags', () => {
+    it('renders an <Login /> component checking for label', () => {
         const wrapper = shallow(<Login />);
-        const element = wrapper.find('input');
-        expect(element).toHaveLength(2)
+        expect(wrapper.find('div.App-body label')).toHaveLength(2);
     });
 });
