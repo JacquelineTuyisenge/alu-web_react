@@ -1,26 +1,15 @@
-const { Map, Seq } = require('immutable');
+import { Seq } from 'immutable';
 
-export function printBestStudents(grades) {
-    Seq(grades)
-        .filter(student => student.score >= 70) 
-        .forEach(student => {
-            const firstName = student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1);
-            const lastName = student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1);
-            console.log(`${firstName} ${lastName}`);
-        });
+export default function printBestStudents(grades) {
+  const bestStudents = Seq(grades)
+    .filter((student) => student.score >= 70)
+    .map((student) => ({
+      score: student.score,
+      firstName:
+        student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1),
+      lastName:
+        student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1),
+    }));
+
+  console.log(bestStudents.toObject());
 }
-
-const grades = {
-  1: {
-    score: 99,
-    firstName: 'guillaume',
-    lastName: 'salva',
-  },
-  2: {
-    score: 65,
-    firstName: 'john',
-    lastName: 'doe',
-  },
-};
-
-printBestStudents(grades);
