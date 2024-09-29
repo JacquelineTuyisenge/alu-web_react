@@ -4,7 +4,7 @@ const notificationsData = [
   {
     id: "5debd7642e815cd350407777",
     author: {
-      id: "5debd764a7c57c7839d722e9", // Link to user data
+      id: "5debd764a7c57c7839d722e9",
       age: 25,
       email: "poole.sanders@holberton.nz",
       name: { first: "Poole", last: "Sanders" },
@@ -20,7 +20,7 @@ const notificationsData = [
   {
     id: "5debd76480edafc8af244228",
     author: {
-      id: "5debd764f8452ef92346c772", // Another user
+      id: "5debd764f8452ef92346c772", 
       age: 30,
       email: "john.doe@holberton.nz",
       name: { first: "John", last: "Doe" },
@@ -47,14 +47,13 @@ describe('Notification Schema Normalization', () => {
     expect(normalizedData.result).toEqual([
       "5debd7642e815cd350407777",
       "5debd76480edafc8af244228",
-      // Add other expected IDs based on your input
     ]);
   });
 
   it('should have a correct users entity', () => {
     const user = normalizedData.entities.users["5debd764a7c57c7839d722e9"]; // Ensure this ID matches one in notificationsData
     expect(user).toEqual({
-      id: "5debd764a7c57c7839d722e9", // Ensure the ID is correct
+      id: "5debd764a7c57c7839d722e9",
       age: 25,
       email: "poole.sanders@holberton.nz",
       name: { first: "Poole", last: "Sanders" },
@@ -76,8 +75,8 @@ describe('Notification Schema Normalization', () => {
   it('should have a correct notifications entity', () => {
     const notification = normalizedData.entities.notifications["5debd7642e815cd350407777"];
     expect(notification).toEqual({
-      author: "5debd764a7c57c7839d722e9", // Update this to the correct author ID
-      context: "efb6c485-00f7-4fdf-97cc-5e12d14d6c41", // This should match the message GUID
+      author: "5debd764a7c57c7839d722e9",
+      context: "efb6c485-00f7-4fdf-97cc-5e12d14d6c41",
       id: "5debd7642e815cd350407777"
     });
   });
