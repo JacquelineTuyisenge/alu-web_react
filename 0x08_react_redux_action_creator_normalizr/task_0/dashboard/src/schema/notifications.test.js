@@ -1,7 +1,7 @@
 import { getAllNotificationsByUser } from './notifications';
 
-describe('Notifications Tests', () => {
-  it('should return correct notifications for user ID 5debd764a7c57c7839d722e9', () => {
+describe('getAllNotificationsByUser', () => {
+  it('should return notifications for the user with id 5debd764a7c57c7839d722e9', () => {
     const userId = '5debd764a7c57c7839d722e9';
     const expectedNotifications = [
       {
@@ -19,7 +19,7 @@ describe('Notifications Tests', () => {
     ];
 
     const notifications = getAllNotificationsByUser(userId);
-    
-    expect(notifications).toEqual(expect.arrayContaining(expectedNotifications));
+
+    expect(notifications).toEqual(expectedNotifications);
   });
 });

@@ -1,20 +1,14 @@
 import * as notificationsData from "../../notifications.json";
 
-function AllNotifications(){
-
-    return notificationsData;
-}
-export function getAllNotificationsByUser(userId){
-    const allNotifications = AllNotifications();
-    const userIdNotifications = [];
-
-    for (let i = 0; i < allNotifications.length; i++){
-        if (allNotifications[i].author.id === userId){
-            userIdNotifications.push(allNotifications[i].context);
+export function getAllNotificationsByUser(userId) {
+    const notifications = notificationsData.default;
+    const userNotifications = [];
+    
+    for (let i = 0; i < notifications.length; i++) {
+        if (notifications[i].author.id === userId) {
+            userNotifications.push(notifications[i].context);
         }
     }
-
-    console.log('all notifications',userIdNotifications);
-    return userIdNotifications;
-
+    
+    return userNotifications;
 }
